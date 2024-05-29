@@ -1,3 +1,4 @@
+// ./src/app/[slug]/page.tsx
 "use client";
 // deps
 import { useFormState } from "react-dom";
@@ -34,20 +35,24 @@ const LogForm = ({ children }: { children: React.ReactNode }) => {
   return (
     <form action={formAction}>
       <CardHeader>
-        <CardTitle>{children} lomake</CardTitle>
+        <CardTitle>
+          {children === "register-user"
+            ? "Luo uusi käyttäjätili."
+            : "Kirjaudu sisään käyttäjälläsi."}
+        </CardTitle>
       </CardHeader>
       <CardContent className="space-y-2">
         <Input placeholder="Email" />
         <Input placeholder="Password" />
       </CardContent>
       <CardFooter>
-        <Button>{children}</Button>
+        <Button>Submit</Button>
       </CardFooter>
     </form>
   );
 };
 
-const LogSlug = ({ params }: { params: { slug: React.ReactNode } }) => {
+const LogSlugPage = ({ params }: { params: { slug: React.ReactNode } }) => {
   return (
     <Card className="m-4">
       <LogForm>{params.slug}</LogForm>
@@ -55,4 +60,4 @@ const LogSlug = ({ params }: { params: { slug: React.ReactNode } }) => {
   );
 };
 
-export default LogSlug;
+export default LogSlugPage;
