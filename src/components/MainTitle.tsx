@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 export const MainTitle = () => {
   return (
     <section className="flex flex-col items-center">
-      <h1 className="text-6xl">Pet Cards</h1>
+      <Link href={`/`}>
+        <h1 className="text-6xl">Pet Cards</h1>
+      </Link>
     </section>
   );
 };
